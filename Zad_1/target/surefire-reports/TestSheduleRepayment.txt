@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: TestSheduleRepayment
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.185 s <<< FAILURE! - in TestSheduleRepayment
+servlet_should_not_greet_the_user_if_the_data_are_empty(TestSheduleRepayment)  Time elapsed: 0.13 s  <<< ERROR!
+java.lang.NumberFormatException: empty String
+	at TestSheduleRepayment.servlet_should_not_greet_the_user_if_the_data_are_empty(TestSheduleRepayment.java:42)
+
+servlet_should_not_greet_the_user_if_the_data_are_null(TestSheduleRepayment)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at TestSheduleRepayment.servlet_should_not_greet_the_user_if_the_data_are_null(TestSheduleRepayment.java:25)
+
+servlet_should_greet_the_user_when_the_data_are_provided(TestSheduleRepayment)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at TestSheduleRepayment.servlet_should_greet_the_user_when_the_data_are_provided(TestSheduleRepayment.java:58)
+
