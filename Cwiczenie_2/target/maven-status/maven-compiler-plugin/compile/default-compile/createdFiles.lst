@@ -1,0 +1,4 @@
+web\AddApplicantServlet.class
+domain\ConferenceApplication.class
+repositories\DummyConferenceApplicationRepository.class
+repositories\ConferenceApplicationRepository.class
