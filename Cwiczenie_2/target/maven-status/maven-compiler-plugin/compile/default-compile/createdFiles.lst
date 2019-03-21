@@ -1,4 +1,6 @@
 web\AddApplicantServlet.class
+web\filters\ApplicationDataInSessionFilter.class
+web\filters\RegistrationClosedFilter.class
 domain\ConferenceApplication.class
 repositories\DummyConferenceApplicationRepository.class
 repositories\ConferenceApplicationRepository.class

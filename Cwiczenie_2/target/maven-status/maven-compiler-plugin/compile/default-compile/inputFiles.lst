@@ -1,4 +1,6 @@
 C:\Users\Maciej\Desktop\Java_Zaawansowana\Cwiczenie_2\src\main\java\domain\ConferenceApplication.java
+C:\Users\Maciej\Desktop\Java_Zaawansowana\Cwiczenie_2\src\main\java\web\filters\ApplicationDataInSessionFilter.java
 C:\Users\Maciej\Desktop\Java_Zaawansowana\Cwiczenie_2\src\main\java\repositories\ConferenceApplicationRepository.java
 C:\Users\Maciej\Desktop\Java_Zaawansowana\Cwiczenie_2\src\main\java\repositories\DummyConferenceApplicationRepository.java
 C:\Users\Maciej\Desktop\Java_Zaawansowana\Cwiczenie_2\src\main\java\web\AddApplicantServlet.java
+C:\Users\Maciej\Desktop\Java_Zaawansowana\Cwiczenie_2\src\main\java\web\filters\RegistrationClosedFilter.java

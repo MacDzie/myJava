@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestAddApplicantServlet
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.157 s <<< FAILURE! - in TestAddApplicantServlet
+TestAddApplicantServlet  Time elapsed: 0.157 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+Caused by: java.util.MissingResourceException: Can't find bundle for base name javax.servlet.LocalStrings, locale en_GB
+

@@ -4,6 +4,7 @@ import domain.ConferenceApplication;
 import repositories.ConferenceApplicationRepository;
 import repositories.DummyConferenceApplicationRepository;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,20 +17,17 @@ import java.io.IOException;
 public class AddApplicantServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private ConferenceApplicationRepository repository;
+
+    public void init(ServletConfig config) throws ServletException{
+        repository = new DummyConferenceApplicationRepository();
+    }
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        if(session.getAttribute("conf") != null){
-            response.getWriter().println("Powtórne wypełnienie formularza zostało zablokowane.");
-            return;
-        }
         ConferenceApplication application = retrieveApplicationFromRequest(request);
-        ConferenceApplicationRepository repository = new DummyConferenceApplicationRepository();
-
-
-        session.setAttribute("conf", application);
-
         repository.add(application);
+        session.setAttribute("conf", application);
         response.sendRedirect("success.jsp");
     }
     private ConferenceApplication retrieveApplicationFromRequest(HttpServletRequest request){
