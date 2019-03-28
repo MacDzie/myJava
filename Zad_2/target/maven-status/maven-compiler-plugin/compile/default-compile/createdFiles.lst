@@ -1,0 +1,11 @@
+database\ConnectDatabase.class
+web\servlets\AllUsersServlet.class
+web\filters\PrivilegeFilter.class
+web\filters\ProfileFilter.class
+web\servlets\RegistrationServlet.class
+validate\ValidateLogin.class
+web\filters\PremiumFilter.class
+web\servlets\LoginServlet.class
+domain\Users.class
+web\servlets\ProfileServlet.class
+web\filters\LoginFilter.class
