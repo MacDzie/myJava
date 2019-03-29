@@ -33,8 +33,8 @@ public class RegistrationServlet extends HttpServlet {
 
             Connection con = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb", "SA", "");
 
-            CreateTableDB createTableDB = new CreateTableDB();
-            createTableDB.createTable();
+            //CreateTableDB createTableDB = new CreateTableDB();
+            //createTable();
 
 
             PreparedStatement preparedStmt = con.prepareStatement("INSERT INTO users (Username, E_mail, Password, Premium, Administrator) VALUES (?, ?, ?, ?, ?)");

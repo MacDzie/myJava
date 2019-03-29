@@ -14,7 +14,7 @@ public class LoginFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
 
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
 
         String uname = request.getParameter("name");
@@ -25,8 +25,9 @@ public class LoginFilter implements Filter {
             rs.include(request, response);
         } else {
             out.println("<font color=red>Username or Password incorrect. Try again.</font>");
-            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
-            rs.forward(request, response);
+            RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
+            rs.include(request, response);
+
         }
 
         chain.doFilter(request, response);

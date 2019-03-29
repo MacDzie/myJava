@@ -1,11 +1,9 @@
 package web.filters;
 
-import web.servlets.RegistrationServlet;
+import database.SelectDB;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,6 +23,30 @@ public class RegisterFilter implements Filter {
         String uname = request.getParameter("name");
         String pass = request.getParameter("pass");
         String cPass = request.getParameter("cPass");
+
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet result = null;
+
+        try {
+            Class.forName("org.hsqldb.jdbc.JDBCDriver");
+
+            con = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb", "SA", "");
+
+            stmt = con.createStatement();
+            result = stmt.executeQuery("SELECT Username FROM users");
+
+            while(result.next()){
+                if(result.getString("Username").equals(uname)){
+                    // do dokonczenia
+
+                }
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+
         if (pass.equals(cPass)){
             RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
             rs.include(request,response);
