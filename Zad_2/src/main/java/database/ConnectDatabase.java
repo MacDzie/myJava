@@ -5,7 +5,7 @@ package database;
         import java.sql.SQLException;
 
 public class ConnectDatabase {
-    public static void main(String[] args) {
+    public void connectDb() {
         Connection con = null;
 
         try {

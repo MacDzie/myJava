@@ -1,28 +1,39 @@
 package web.filters;
 
+import validate.ValidateLogin;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
-@WebFilter(servletNames = {"/register"})
+@WebFilter(servletNames = "login",filterName = "LoginFilter")
 public class LoginFilter implements Filter {
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest httpRequest = (HttpServletRequest) request;
-        HttpServletResponse httpResponse = (HttpServletResponse) response;
-        HttpSession session = httpRequest.getSession();
-        if(session.getAttribute("config")!=null) {
-            httpResponse.sendRedirect("profile.jsp");
-            return;
+    public void destroy() {
+    }
+
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
+
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+
+        String uname = request.getParameter("name");
+        String pass = request.getParameter("pass");
+
+        if(ValidateLogin.checkUser(uname, pass)) {
+            RequestDispatcher rs = request.getRequestDispatcher("profile.jsp");
+            rs.include(request, response);
+        } else {
+            out.println("<font color=red>Username or Password incorrect. Try again.</font>");
+            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
+            rs.forward(request, response);
         }
+
         chain.doFilter(request, response);
     }
-    public void destroy() {
+
+    public void init(FilterConfig config) throws ServletException {
 
     }
-    public void init(FilterConfig fConfig) throws ServletException {
 
-    }
 }

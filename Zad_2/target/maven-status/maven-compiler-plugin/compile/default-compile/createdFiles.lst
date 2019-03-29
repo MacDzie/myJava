@@ -1,8 +1,11 @@
 database\ConnectDatabase.class
+database\SelectDB.class
 web\servlets\AllUsersServlet.class
 web\filters\PrivilegeFilter.class
+web\filters\RegisterFilter.class
 web\filters\ProfileFilter.class
 web\servlets\RegistrationServlet.class
+database\TableExistOrNot.class
 validate\ValidateLogin.class
 web\filters\PremiumFilter.class
 web\servlets\LoginServlet.class

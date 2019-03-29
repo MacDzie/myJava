@@ -1,20 +1,21 @@
 package web.servlets;
 
 import database.CreateTableDB;
+import database.TableExistOrNot;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@WebServlet(name = "/register", urlPatterns = {"/register"})
+@WebServlet(name = "register", urlPatterns = {"/register"})
 public class RegistrationServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -32,8 +33,9 @@ public class RegistrationServlet extends HttpServlet {
 
             Connection con = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb", "SA", "");
 
-            //CreateTableDB create = new CreateTableDB();
-            //create.createTable();
+            CreateTableDB createTableDB = new CreateTableDB();
+            createTableDB.createTable();
+
 
             PreparedStatement preparedStmt = con.prepareStatement("INSERT INTO users (Username, E_mail, Password, Premium, Administrator) VALUES (?, ?, ?, ?, ?)");
             preparedStmt.setString(1, uname);
@@ -44,7 +46,7 @@ public class RegistrationServlet extends HttpServlet {
 
             preparedStmt.executeUpdate();
 
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

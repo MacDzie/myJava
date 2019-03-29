@@ -9,7 +9,7 @@ public class InsertDB {
 
     /*public static boolean tableExist(Connection conn, String tableName) throws SQLException {
         boolean tExists = false;
-        try(ResultSet rs = conn.getMetaData().getTables(null, null, "USERS", null)){
+        try(ResultSet rs = conn.getMetaData().getTables(null, null, tableName, null)){
             while (rs.next()) {
                 String tName = rs.getString("Username");
                 if (tName != null && tName.equals(tableName.toLowerCase())) {
