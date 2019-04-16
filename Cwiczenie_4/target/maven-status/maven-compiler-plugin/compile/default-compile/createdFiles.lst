@@ -1,0 +1,6 @@
+domain\Car.class
+domain\Person.class
+rest\TestRest.class
+rest\PeopleResources.class
+domain\services\PersonService.class
+rest\ApplicationConfig.class
