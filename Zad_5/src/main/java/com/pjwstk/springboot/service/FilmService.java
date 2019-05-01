@@ -50,8 +50,8 @@ public class FilmService {
         film.setRating(newRating);
     }
 
-    public void addActors(Actor actor, Film film) {
-        repository.addActor(actor, film);
+    public void addActors(Film film, Actor actor) {
+        repository.addActor(film, actor);
     }
 
     public void deleteComments(int id, Film film) {

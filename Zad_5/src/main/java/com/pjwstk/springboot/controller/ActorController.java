@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.pjwstk.springboot.service.ActorService;
+import com.pjwstk.springboot.service.FilmService;
 
 @RestController
 @RequestMapping("/filmweb/actor")
@@ -14,6 +15,8 @@ public class ActorController {
 
     @Autowired
     ActorService actorService;
+    @Autowired
+    FilmService filmService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getAll() {
@@ -56,12 +59,15 @@ public class ActorController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/{id}/film")
-    public ResponseEntity<?> addFilm(@PathVariable("id") int id, @RequestBody Film film) {
+    public ResponseEntity<?> addFilm(@PathVariable("id") int id, @RequestBody Film filmio) {
         Actor actor = actorService.getActor(id);
+
         if (actor == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        actorService.addFilms(film, actor);
+        actorService.addFilms(filmio, actor);
+        Film film = filmService.getFilm(id);
+        filmService.addActors(film, actor);
         return new ResponseEntity(HttpStatus.OK);
     }
 

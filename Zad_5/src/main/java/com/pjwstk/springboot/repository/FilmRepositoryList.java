@@ -55,7 +55,7 @@ public class FilmRepositoryList {
         }
     }
 
-    public void addActor (Actor actor, Film film) {
+    public void addActor (Film film, Actor actor) {
         film.getActors().add(actor);
     }
 }

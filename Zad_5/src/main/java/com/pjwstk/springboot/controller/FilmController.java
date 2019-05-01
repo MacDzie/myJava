@@ -100,16 +100,6 @@ public class FilmController {
         return new ResponseEntity(film, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/{id}/actors")
-    public ResponseEntity<?> addActors(@PathVariable("id") int id, @RequestBody Actor actor) {
-        Film film = filmService.getFilm(id);
-        if (film == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        filmService.addActors(actor, film);
-        return new ResponseEntity(HttpStatus.OK);
-    }
-
     @RequestMapping(method = RequestMethod.GET, value = "/{id}/actors")
     public ResponseEntity<?> getActors(@PathVariable("id") int id) {
         Film film = filmService.getFilm(id);
