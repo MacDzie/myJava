@@ -1,0 +1,8 @@
+rest\PartResources.class
+domain\ComputerParts.class
+domain\GraphicsCard.class
+domain\HardDisc.class
+domain\services\PartService.class
+rest\ApplicationConfig.class
+domain\Motherboard.class
+domain\RAMMemory.class
